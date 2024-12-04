@@ -1,6 +1,7 @@
 package signature
 
 import (
+    "encoding/binary"
     "fmt"
     "io"
     "os"

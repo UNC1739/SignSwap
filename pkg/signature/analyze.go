@@ -106,3 +106,11 @@ func AnalyzeFile(filename string) (*PEInfo, error) {
     return info, nil
 }
 
+// IsSigned checks if a PE file contains a digital signature
+func IsSigned(filename string) (bool, error) {
+    info, err := AnalyzeFile(filename)
+    if err != nil {
+        return false, err
+    }
+    return info.CertLOC != 0 && info.CertSize != 0, nil
+}
